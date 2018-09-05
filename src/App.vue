@@ -1,28 +1,44 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Navgatior />
+    <Index />
+    <Project v-if=" change == index " @click="nav(index)"/>
+    <Enterprise v-else-if=" change == index " @click="nav(index)"/>
+    <Discounts v-else-if=" change == index " @click="nav(index)"/>
+    <Contact v-else-if=" change == index " @click="nav(index)"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Navgatior from './components/Navgatior'
+import Index from './pages/Index.vue'
+import Project from './pages/Project.vue'
+import Enterprise from './pages/Enterprise'
+import Discounts from './pages/Discounts'
+import Contact from './pages/Contact'
 export default {
   name: 'app',
+  data() {
+    return {
+      index: 0
+    }
+  },
   components: {
-    HelloWorld
+    Navgatior,
+    Index,
+    Project,
+    Enterprise,
+    Discounts,
+    Contact
+  },
+  methods: {
+    nav(index) {
+      this.index = index
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+ @import './css/App.css';
 </style>
