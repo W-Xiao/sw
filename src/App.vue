@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <Navgatior />
-    <Index />
-    <Project v-if=" change == index " @click="nav(index)"/>
-    <Enterprise v-else-if=" change == index " @click="nav(index)"/>
-    <Discounts v-else-if=" change == index " @click="nav(index)"/>
-    <Contact v-else-if=" change == index " @click="nav(index)"/>
+    <Navgatior v-on:changeIndex="change" />
+    <Index v-if=" 0 == index " />
+    <Project v-else-if=" 1 == index "/>
+    <Enterprise v-else-if=" 2 == index "/>
+    <Discounts v-else-if=" 3 == index "/>
+    <Contact v-else-if=" 4 == index "/>
   </div>
 </template>
 
@@ -32,7 +32,7 @@ export default {
     Contact
   },
   methods: {
-    nav(index) {
+    change(index) {
       this.index = index
     }
   }
