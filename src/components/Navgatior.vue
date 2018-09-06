@@ -2,7 +2,14 @@
   <div class="nav-box">
     <div class="nav-box-out">
       <img src="../img/navImg/logo.jpg" class="logo">
-        <div v-for="(nav,index) in navs" :key="index" class="nav-topic" :class="{ active:changeColor == index }" @click="change(index)"> {{ nav }} </div>
+        <div
+          v-for="(nav,index) in navs"
+          :key="index"
+          class="nav-topic"
+          :class="{ active:changeColor == index }"
+          @click="change(index)">
+          {{ nav }}
+        </div>
     </div>
   </div>
 </template>
@@ -21,6 +28,7 @@ export default {
   methods:{
     change(index){
       this.changeColor = index
+      this.$emit("changeIndex", index)
     }
   }
 }
