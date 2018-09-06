@@ -22,7 +22,7 @@ export default {
   data() {
     return {
       navs:["网站首页","产品中心","企业文化","优惠活动","联系我们"],
-      changeColor:-1
+      changeColor: 0
     }
   },
   methods:{
